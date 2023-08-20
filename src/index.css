@@ -1,0 +1,28 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&display=swap");
+
+:root {
+  --primary: #006e51;
+  --bg-white: #ffffff;
+  --bg-slate-100: #f1f5f9;
+  --bg-slate-200: #e2e8f0;
+  --bg-slate-400: #94a3b8;
+  --bg-slate-500: #64748b;
+  --bg-slate-600: #334155;
+  --radius: 6px;
+  --mainfont: "Inter", sans-serif;
+}
+
+* {
+  font-family: var(--mainfont);
+  font-weight: 400;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+main {
+  box-sizing: border-box;
+}
