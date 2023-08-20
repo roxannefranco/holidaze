@@ -1,12 +1,14 @@
 import { useEffect, useState } from "react";
 import { apiUrl } from "../../configs/api";
 import styles from "./styles.module.css";
+import Input from "../../components/Input";
 
 function Login() {
   return (
-    <div>
+    <main>
       <h1>hello login</h1>
-    </div>
+      <Input />
+    </main>
   );
 }
 
