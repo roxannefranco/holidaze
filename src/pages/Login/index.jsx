@@ -8,7 +8,7 @@ import WelcomeImage from "../../components/Welcome Image";
 
 function Login() {
   return (
-    <main>
+    <main className={styles.main}>
       {/* LEFT SIDE */}
       <div>
         <WelcomeImage></WelcomeImage>
