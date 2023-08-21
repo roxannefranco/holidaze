@@ -1,0 +1,8 @@
+Input {
+  font-family: var(--mainfont);
+  height: 10px;
+  width: 80px;
+  border-radius: 6px;
+  padding-top: 2px;
+  padding-bottom: 2px;
+}

@@ -26,3 +26,13 @@ body {
 main {
   box-sizing: border-box;
 }
+
+.center-content {
+  max-width: 1045px;
+  width: calc(100% - 40px);
+  margin: 0 auto;
+}
+
+svg {
+  display: block;
+}

@@ -4,8 +4,8 @@ import styles from "./styles.module.css";
 function Input(props) {
   return (
     <div>
-      <input placeholder="teste" />
-      <Icon></Icon>
+      <input type={props.type} required />
+      <Icon name={props.icon} required />
     </div>
   );
 }
