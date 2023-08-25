@@ -1,0 +1,14 @@
+.mainBtn {
+  background-color: var(--primary);
+  color: var(--bg-white);
+  padding: 10px;
+  width: 320px;
+  height: 40px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.mainBtn:hover {
+  background-color: var(--hover);
+}

@@ -1,3 +1,64 @@
-.main {
+.loginWrapper {
   display: flex;
+  height: 100vh;
+}
+
+.rightSide {
+  padding: 0 20px;
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.loginContainer {
+  max-width: 320px;
+}
+
+.loginForm {
+  justify-content: center;
+  align-items: center;
+}
+
+.loginLabels {
+  display: block;
+  font-family: var(--mainfont);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--bg-slate-500);
+  margin-bottom: 5px;
+  box-sizing: border-box;
+}
+
+.loginLogo {
+  display: flex;
+  margin-bottom: 80px;
+  align-items: center;
+  justify-content: center;
+}
+
+.signUp {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+.signUp span {
+  font-family: var(--mainfont);
+  color: var(--bg-slate-500);
+  font-size: 14px;
+}
+
+.signUp a {
+  text-decoration: none;
+  cursor: pointer;
+  margin-left: 5px;
+  font-size: 14px;
+  color: var(--primary);
+}
+
+.signUp a:hover {
+  text-decoration: underline;
 }

@@ -1,8 +1,20 @@
-Input {
+.inputContainer {
+  position: relative;
   font-family: var(--mainfont);
-  height: 10px;
-  width: 80px;
+  margin-bottom: 20px;
+}
+
+.inputContainer input {
+  border: 1px solid var(--bg-slate-200);
+  box-sizing: border-box;
   border-radius: 6px;
-  padding-top: 2px;
-  padding-bottom: 2px;
+  outline: 0;
+  height: 40px;
+  width: 320px;
+}
+
+.loginIcons {
+  position: absolute;
+  top: 10px;
+  right: 10px;
 }

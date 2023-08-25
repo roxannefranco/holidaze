@@ -3,9 +3,11 @@ import styles from "./styles.module.css";
 
 function Input(props) {
   return (
-    <div>
+    <div className={styles.inputContainer}>
       <input type={props.type} required />
-      <Icon name={props.icon} required />
+      <span className={styles.loginIcons}>
+        <Icon name={props.icon} required />
+      </span>
     </div>
   );
 }
