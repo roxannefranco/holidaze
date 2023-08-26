@@ -1,9 +1,9 @@
 import styles from "./styles.module.css";
 
-function Button() {
+function Button(props) {
   return (
     <div>
-      <button className={styles.mainBtn}>Log in</button>
+      <button className={styles.mainBtn}>{props.children}</button>
     </div>
   );
 }

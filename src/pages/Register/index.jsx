@@ -1,10 +1,12 @@
+import { useEffect, useState } from "react";
+import { apiUrl } from "../../configs/api";
 import styles from "./styles.module.css";
 import Input from "../../components/Input";
 import Logo from "../../components/Logo";
 import WelcomeImage from "../../components/Welcome Image";
 import Button from "../../components/Button";
 
-function Login() {
+function Register() {
   return (
     <main>
       <div className={styles.loginWrapper}>
@@ -17,15 +19,19 @@ function Login() {
           </div>
           <div className={styles.loginContainer}>
             <form className={styles.loginForm}>
+              <label className={styles.loginLabels}>Username</label>
+              <Input icon="user" type="text" />
               <label className={styles.loginLabels}>Email</label>
               <Input icon="email" type="email" />
               <label className={styles.loginLabels}>Password</label>
               <Input icon="lock" type="password" />
+              <label className={styles.loginLabels}>Avatar</label>
+              <Input icon="media" type="text" />
             </form>
-            <Button>Log in</Button>
+            <Button>Register</Button>
             <div className={styles.signUp}>
-              <span>Don't have an account?</span>
-              <a href="#">Sign up here</a>
+              <span>Already have an account?</span>
+              <a href="#">Login here</a>
             </div>
           </div>
         </div>
@@ -34,4 +40,4 @@ function Login() {
   );
 }
 
-export default Login;
+export default Register;
