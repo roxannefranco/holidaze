@@ -5,6 +5,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
+import Venues from "./pages/Admin/Venues";
+import ProtectedRoute from "./utils/ProtectedRoute";
 
 // configure the routes
 const routerConfig = createBrowserRouter([
@@ -19,6 +21,14 @@ const routerConfig = createBrowserRouter([
   {
     path: "/register",
     element: <Register />,
+  },
+  {
+    path: "/admin/venues",
+    element: (
+      <ProtectedRoute>
+        <Venues />
+      </ProtectedRoute>
+    ),
   },
 ]);
 

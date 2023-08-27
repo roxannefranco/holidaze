@@ -31,7 +31,7 @@ function Register() {
             <Button>Register</Button>
             <div className={styles.signUp}>
               <span>Already have an account?</span>
-              <a href="#">Login here</a>
+              <a href="/login">Login here</a>
             </div>
           </div>
         </div>

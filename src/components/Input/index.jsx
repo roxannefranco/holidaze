@@ -2,11 +2,20 @@ import Icon from "../Icon";
 import styles from "./styles.module.css";
 
 function Input(props) {
+  // destructure props
+  const { type, icon, value, setValue } = props;
+
   return (
     <div className={styles.inputContainer}>
-      <input type={props.type} required />
+      <input
+        type={type}
+        required
+        value={value}
+        // setting new value on state
+        onChange={(event) => setValue(event.target.value)}
+      />
       <span className={styles.loginIcons}>
-        <Icon name={props.icon} required />
+        <Icon name={icon} required />
       </span>
     </div>
   );

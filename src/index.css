@@ -37,3 +37,12 @@ main {
 svg {
   display: block;
 }
+
+.error-message {
+  background-color: rgba(222, 4, 4, 0.1);
+  color: #de0404;
+  border-radius: 6px;
+  padding: 6px 10px;
+  margin-bottom: 10px;
+  font-size: 12px;
+}
