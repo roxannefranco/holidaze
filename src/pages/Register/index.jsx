@@ -5,8 +5,46 @@ import Input from "../../components/Input";
 import Logo from "../../components/Logo";
 import WelcomeImage from "../../components/Welcome Image";
 import Button from "../../components/Button";
+import { registerUser } from "../../api/auth";
+import { userAtom } from "../../atoms/auth";
+import { useAtom } from "jotai";
+import { useNavigate } from "react-router-dom";
 
 function Register() {
+  const navigate = useNavigate();
+  // State
+  const [name, setName] = useState("");
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [avatar, setAvatar] = useState("");
+  const [errors, setErrors] = useState([]);
+
+  // Check if user is logged in
+  useEffect(() => {
+    const accessToken = localStorage.getItem("token");
+    if (accessToken != null) {
+      return navigate("/");
+    }
+  }, []);
+
+  /**
+   * Handle the form and submit to API
+   */
+  const submitForm = async (e) => {
+    e.preventDefault();
+
+    setErrors([]);
+
+    // Authenticate user in API
+    const result = await registerUser(email, password, name, avatar);
+
+    if (result.errors != null) {
+      setErrors(result.errors);
+    } else {
+      navigate("/login");
+    }
+  };
+
   return (
     <main>
       <div className={styles.loginWrapper}>
@@ -18,17 +56,39 @@ function Register() {
             <Logo></Logo>
           </div>
           <div className={styles.loginContainer}>
-            <form className={styles.loginForm}>
+            <form className={styles.loginForm} onSubmit={submitForm}>
               <label className={styles.loginLabels}>Username</label>
-              <Input icon="user" type="text" />
+              <Input icon="user" type="text" value={name} setValue={setName} />
               <label className={styles.loginLabels}>Email</label>
-              <Input icon="email" type="email" />
+              <Input
+                icon="email"
+                type="email"
+                value={email}
+                setValue={setEmail}
+              />
               <label className={styles.loginLabels}>Password</label>
-              <Input icon="lock" type="password" />
+              <Input
+                icon="lock"
+                type="password"
+                value={password}
+                setValue={setPassword}
+              />
               <label className={styles.loginLabels}>Avatar</label>
-              <Input icon="media" type="text" />
+              <Input
+                icon="media"
+                type="text"
+                value={avatar}
+                setValue={setAvatar}
+              />
+              {errors.length ? (
+                <div className="error-message">
+                  {errors.map((error) => {
+                    return error.message;
+                  })}
+                </div>
+              ) : null}
+              <Button>Register</Button>
             </form>
-            <Button>Register</Button>
             <div className={styles.signUp}>
               <span>Already have an account?</span>
               <a href="/login">Login here</a>
