@@ -1,14 +1,81 @@
 .mainBtn {
-  background-color: var(--primary);
-  color: var(--bg-white);
   padding: 10px;
-  width: 320px;
-  height: 40px;
   border: none;
   border-radius: 6px;
   cursor: pointer;
+  display: flex;
+  align-items: center;
 }
 
-.mainBtn:hover {
+.primary {
+  background-color: var(--primary);
+  color: var(--bg-white);
+}
+
+.primary:hover {
   background-color: var(--hover);
+}
+
+.primary svg path {
+  stroke: var(--bg-white);
+}
+
+.secondary {
+  background-color: var(--bg-slate-100);
+  color: var(--bg-slate-500);
+}
+
+.secondary:hover {
+  background-color: var(--bg-slate-200);
+}
+
+.secondary svg path {
+  stroke: var(--bg-slate-500);
+}
+
+.terciary {
+  background-color: var(--bg-white);
+  color: var(--bg-slate-500);
+}
+
+.terciary:hover {
+  background-color: var(--bg-slate-100);
+}
+
+.terciary svg path {
+  stroke: var(--bg-slate-500);
+}
+
+.sm {
+  padding: 0 10px;
+  height: 30px;
+  gap: 6px;
+}
+
+.md {
+  padding: 0 14px;
+  height: 36px;
+  gap: 8px;
+}
+
+.lg {
+  padding: 0 18px;
+  height: 40px;
+  gap: 10px;
+}
+
+.sm svg {
+  width: 16px;
+  height: 16px;
+}
+
+.md svg,
+.lg svg {
+  width: 20px;
+  height: 20px;
+}
+
+.block {
+  width: 100%;
+  justify-content: center;
 }

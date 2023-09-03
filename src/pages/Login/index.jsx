@@ -88,9 +88,10 @@ function Login() {
                 </div>
               ) : null}
 
-              <Button>Log in</Button>
+              <Button size="lg" block>
+                Log in
+              </Button>
             </form>
-
             <div className={styles.signUp}>
               <span>Don't have an account?</span>
               <a href="/register">Sign up here</a>

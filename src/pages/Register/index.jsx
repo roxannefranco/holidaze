@@ -9,6 +9,7 @@ import { registerUser } from "../../api/auth";
 import { userAtom } from "../../atoms/auth";
 import { useAtom } from "jotai";
 import { useNavigate } from "react-router-dom";
+import Checkbox from "../../components/Checkbox";
 
 function Register() {
   const navigate = useNavigate();
@@ -87,7 +88,10 @@ function Register() {
                   })}
                 </div>
               ) : null}
-              <Button>Register</Button>
+              <Checkbox id="hostBox" label="Host my own Venues" />
+              <Button size="lg" block>
+                Register
+              </Button>
             </form>
             <div className={styles.signUp}>
               <span>Already have an account?</span>
