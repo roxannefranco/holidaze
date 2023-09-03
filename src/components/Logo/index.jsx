@@ -1,5 +1,3 @@
-import styles from "./styles.module.css";
-
 function Logo() {
   return (
     <svg

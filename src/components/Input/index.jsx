@@ -7,6 +7,8 @@ function Input(props) {
 
   return (
     <div className={styles.inputContainer}>
+      {label != null ? <label>{label}</label> : null}
+
       <input
         type={type}
         required
@@ -19,8 +21,6 @@ function Input(props) {
           <Icon name={icon} required />
         </span>
       ) : null}
-
-      {label != null ? <label>{label}</label> : null}
     </div>
   );
 }

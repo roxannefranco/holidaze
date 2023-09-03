@@ -58,26 +58,32 @@ function Register() {
           </div>
           <div className={styles.loginContainer}>
             <form className={styles.loginForm} onSubmit={submitForm}>
-              <label className={styles.loginLabels}>Username</label>
-              <Input icon="user" type="text" value={name} setValue={setName} />
-              <label className={styles.loginLabels}>Email</label>
+              <Input
+                icon="user"
+                type="text"
+                label="Username"
+                value={name}
+                setValue={setName}
+              />
               <Input
                 icon="email"
                 type="email"
+                label="Email"
                 value={email}
                 setValue={setEmail}
               />
-              <label className={styles.loginLabels}>Password</label>
               <Input
                 icon="lock"
                 type="password"
+                label="Password"
                 value={password}
                 setValue={setPassword}
               />
-              <label className={styles.loginLabels}>Avatar</label>
+
               <Input
                 icon="media"
                 type="text"
+                label="Avatar"
                 value={avatar}
                 setValue={setAvatar}
               />

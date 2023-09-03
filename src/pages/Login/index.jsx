@@ -65,17 +65,17 @@ function Login() {
           </div>
           <div className={styles.loginContainer}>
             <form className={styles.loginForm} onSubmit={submitForm}>
-              <label className={styles.loginLabels}>Email</label>
               <Input
                 icon="email"
                 type="email"
+                label="Email"
                 value={email}
                 setValue={setEmail}
               />
-              <label className={styles.loginLabels}>Password</label>
               <Input
                 icon="lock"
                 type="password"
+                label="Password"
                 value={password}
                 setValue={setPassword}
               />
