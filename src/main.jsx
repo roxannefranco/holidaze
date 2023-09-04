@@ -6,6 +6,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Venues from "./pages/Admin/Venues";
+import NewVenue from "./pages/Admin/NewVenue";
 import ProtectedRoute from "./utils/ProtectedRoute";
 
 // configure the routes
@@ -27,6 +28,14 @@ const routerConfig = createBrowserRouter([
     element: (
       <ProtectedRoute>
         <Venues />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/admin/new-venue",
+    element: (
+      <ProtectedRoute>
+        <NewVenue />
       </ProtectedRoute>
     ),
   },
