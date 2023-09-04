@@ -1,0 +1,54 @@
+.searchBtn {
+  background-color: var(--primary);
+  width: 28px;
+  height: 28px;
+  border-radius: 5px;
+  display: inline-block;
+  position: absolute;
+  right: 4px;
+  top: 4px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.searchBtn:hover {
+  background-color: var(--hover);
+}
+
+.searchInput {
+  position: relative;
+  margin: 10px;
+}
+
+.searchInput svg {
+  width: 12px;
+  height: 12px;
+}
+
+.searchInput svg path {
+  fill: var(--bg-white);
+}
+
+.searchInput input {
+  border: solid 1px var(--bg-slate-200);
+  border-radius: 6px;
+  height: 36px;
+  width: 334px;
+  font-family: var(--mainfont);
+  font-size: 14px;
+  font-weight: 400;
+  padding-left: 20px;
+  color: var(--bg-slate-400);
+  box-sizing: border-box;
+  outline: none;
+  position: relative;
+}
+
+@media (max-width: 610px) {
+  .searchInput input {
+    width: 210px;
+    font-size: 12px;
+  }
+}

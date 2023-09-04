@@ -17,7 +17,7 @@ function Home() {
 
   return (
     <Layout>
-      <Header></Header>
+      <Header search></Header>
       <h1>hello home</h1>
       {user != null ? <button onClick={logOut}>log out</button> : null}
     </Layout>
