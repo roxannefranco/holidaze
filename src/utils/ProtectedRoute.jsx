@@ -10,7 +10,7 @@ const ProtectedRoute = (props) => {
   // Everytime accessToken changes runs this code
   useEffect(() => {
     const accessToken = localStorage.getItem("token");
-    if (!accessToken || accessToken === "undefined") {
+    if (accessToken == null) {
       setIsLoggedIn(false);
       return navigate("/login");
     }
