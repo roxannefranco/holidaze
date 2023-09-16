@@ -1,0 +1,9 @@
+.amenitiesBox,
+.btns {
+  display: flex;
+}
+
+.mainTitle {
+  font-size: 28px;
+  color: var(--bg-slate-600);
+}
