@@ -1,9 +1,36 @@
+h1 {
+  margin-bottom: 40px;
+}
+
 .amenitiesBox,
 .btns {
   display: flex;
+}
+.btns Button {
+  margin-right: 10px;
+}
+
+.separator {
+  display: block;
+  margin-bottom: 20px;
+}
+
+.priceGuests {
+  display: flex;
+  margin-right: 10px;
+}
+
+.price {
+  max-width: 153px;
 }
 
 .mainTitle {
   font-size: 28px;
   color: var(--bg-slate-600);
+}
+
+.formWrapper {
+  max-width: 511px;
+  margin-left: auto;
+  margin-right: auto;
 }
