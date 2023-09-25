@@ -21,6 +21,7 @@ export async function authenticateUser(email, password) {
     return error;
   }
 }
+
 export async function registerUser(email, password, name, avatar) {
   try {
     const body = {

@@ -38,6 +38,10 @@
   justify-content: center;
 }
 
+.checkContainer {
+  margin-bottom: 20px;
+}
+
 .signUp {
   display: flex;
   align-items: center;

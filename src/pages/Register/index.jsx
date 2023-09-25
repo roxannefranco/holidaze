@@ -1,13 +1,10 @@
 import { useEffect, useState } from "react";
-import { apiUrl } from "../../configs/api";
 import styles from "./styles.module.css";
 import Input from "../../components/Input";
 import Logo from "../../components/Logo";
 import WelcomeImage from "../../components/Welcome Image";
 import Button from "../../components/Button";
 import { registerUser } from "../../api/auth";
-import { userAtom } from "../../atoms/auth";
-import { useAtom } from "jotai";
 import { useNavigate } from "react-router-dom";
 import Checkbox from "../../components/Checkbox";
 
@@ -94,7 +91,10 @@ function Register() {
                   })}
                 </div>
               ) : null}
-              <Checkbox id="hostBox" label="Host my own Venues" />
+              <div className={styles.checkContainer}>
+                <Checkbox id="hostBox" label="Host my own Venues" />
+              </div>
+
               <Button size="lg" block>
                 Register
               </Button>

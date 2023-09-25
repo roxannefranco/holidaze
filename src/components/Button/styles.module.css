@@ -17,7 +17,7 @@
 }
 
 .primary svg path {
-  stroke: var(--bg-white);
+  fill: var(--bg-white);
 }
 
 .secondary {
