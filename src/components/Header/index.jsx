@@ -51,8 +51,8 @@ function Header(props) {
                 </div>
               </div>
               <div className={styles.hiddenMenu}>
-                <Link to="/login">Profile</Link>
-                <Link to="/register">Bookings</Link>
+                <Link to="/admin/overview">Overview</Link>
+                <Link to="/admin/my-account">Manage account</Link>
                 <div></div>
                 <span onClick={logOut}>Log out</span>
               </div>

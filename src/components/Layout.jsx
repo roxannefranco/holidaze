@@ -1,7 +1,7 @@
 function Layout(props) {
   return (
     <div>
-      <main>{props.children}</main>
+      <main className="with-header">{props.children}</main>
     </div>
   );
 }

@@ -7,8 +7,11 @@ import Button from "../../../components/Button";
 import CountrySelect from "../../../components/CountrySelect";
 import { useState } from "react";
 import { newVenue } from "../../../api/venues";
+import { useNavigate } from "react-router-dom";
 
 function NewVenue() {
+  const navigate = useNavigate();
+
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
   const [media, setMedia] = useState(["", ""]);
@@ -70,9 +73,13 @@ function NewVenue() {
       if (result.errors != null) {
         setErrors(result.errors.map((error) => error.message));
       } else {
-        // To do: Go to "My venues page"
+        goToOverview();
       }
     }
+  };
+
+  const goToOverview = () => {
+    navigate("/admin/overview");
   };
 
   return (
@@ -192,7 +199,7 @@ function NewVenue() {
             <Button size="lg" type="primary" preIcon="check">
               Create venue
             </Button>
-            <Button size="lg" type="secondary">
+            <Button size="lg" type="secondary" onClick={goToOverview}>
               Cancel
             </Button>
           </div>

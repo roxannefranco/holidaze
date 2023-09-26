@@ -13,6 +13,7 @@
   height: 40px;
   width: 320px;
   padding: 0 10px;
+  font-size: var(--xs);
 }
 
 .inputContainer textarea {
@@ -23,7 +24,7 @@
 
 .inputContainer label {
   font-family: var(--mainfont);
-  font-size: var(--sm);
+  font-size: 14px;
   font-weight: 400;
   color: var(--bg-slate-500);
   display: block;

@@ -58,3 +58,21 @@ export async function newVenue(
     return error;
   }
 }
+
+export async function getUserVenues(username) {
+  try {
+    const accessToken = localStorage.getItem("token");
+    const response = await fetch(`${apiUrl}/profiles/${username}/venues`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    return error;
+  }
+}
