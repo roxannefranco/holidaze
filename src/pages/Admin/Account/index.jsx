@@ -17,6 +17,7 @@ function Account() {
   const [user, setUser] = useState(null);
   const [avatar, setAvatar] = useState("");
   const [manager, setManager] = useState(false);
+  const [success, setSuccess] = useState(false);
 
   useEffect(() => {
     const userStorage = localStorage.getItem("user");
@@ -44,6 +45,8 @@ function Account() {
     await updateMedia(avatar, user.name);
     await updateManager(manager, user.name);
 
+    setSuccess(true);
+
     // Clone object: https://www.samanthaming.com/tidbits/70-3-ways-to-clone-objects/
     const userClone = { ...user };
     userClone.avatar = avatar;
@@ -51,6 +54,11 @@ function Account() {
 
     setUser(userClone);
     localStorage.setItem("user", JSON.stringify(userClone));
+
+    // Hide after 5 seconds
+    setTimeout(() => {
+      setSuccess(false);
+    }, 5000);
   };
 
   return (
@@ -88,6 +96,12 @@ function Account() {
                 value={manager}
                 setValue={setManager}
               ></Checkbox>
+
+              {success ? (
+                <div className="success-message">
+                  Success! Account has been updated.
+                </div>
+              ) : null}
 
               <div className={styles.btns}>
                 <Button size="lg" type="primary">
