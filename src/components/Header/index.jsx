@@ -1,12 +1,13 @@
 import styles from "./styles.module.css";
 import LogoText from "../../components/LogoText";
 import Icon from "../../components/Icon";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import SearchBar from "../SearchBar";
 import { useEffect, useState } from "react";
 import Avatar from "../Avatar";
 
 function Header(props) {
+  const navigate = useNavigate();
   const { search } = props;
 
   // State
@@ -25,6 +26,7 @@ function Header(props) {
 
   // Resets authenticated values in local storage
   const logOut = () => {
+    navigate("/login");
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     setIsLoggedIn(false);
