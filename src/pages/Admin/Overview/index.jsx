@@ -46,6 +46,10 @@ function Overview() {
     navigate("/admin/new-venue");
   };
 
+  const goToAccount = () => {
+    navigate("/admin/account");
+  };
+
   return (
     <Layout>
       <Header></Header>
@@ -60,7 +64,12 @@ function Overview() {
                   <div className={styles.name}>{user.name}</div>
                   <div className={styles.email}>{user.email}</div>
                 </div>
-                <Button type="terciary" size="lg" preIcon="settings">
+                <Button
+                  type="terciary"
+                  size="lg"
+                  preIcon="settings"
+                  onClick={goToAccount}
+                >
                   Account
                 </Button>
               </div>
