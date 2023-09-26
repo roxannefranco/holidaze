@@ -4,6 +4,7 @@ import Icon from "../../components/Icon";
 import { Link } from "react-router-dom";
 import SearchBar from "../SearchBar";
 import { useEffect, useState } from "react";
+import Avatar from "../Avatar";
 
 function Header(props) {
   const { search } = props;
@@ -40,16 +41,34 @@ function Header(props) {
         </Link>
         {search != null && search ? <SearchBar></SearchBar> : null}
 
-        {isLoggedIn && user ? (
-          <div>
-            <div>{user.name}</div>
-            <button onClick={logOut}>log out</button>
-          </div>
-        ) : (
-          <div>
-            <Icon name="menu"></Icon>
-          </div>
-        )}
+        <div className={styles.showOptions}>
+          {isLoggedIn && user ? (
+            <div>
+              <div className={styles.menu}>
+                <Avatar url={user.avatar} />
+                <div className={styles.arrow}>
+                  <Icon name="arrow-down" />
+                </div>
+              </div>
+              <div className={styles.hiddenMenu}>
+                <Link to="/login">Profile</Link>
+                <Link to="/register">Bookings</Link>
+                <div></div>
+                <span onClick={logOut}>Log out</span>
+              </div>
+            </div>
+          ) : (
+            <div>
+              <div className={styles.menu}>
+                <Icon name="menu"></Icon>
+              </div>
+              <div className={styles.hiddenMenu}>
+                <Link to="/login">Log in</Link>
+                <Link to="/register">Create account</Link>
+              </div>
+            </div>
+          )}
+        </div>
       </div>
     </header>
   );

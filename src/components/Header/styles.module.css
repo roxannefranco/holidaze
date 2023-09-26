@@ -17,3 +17,74 @@
   justify-content: space-between;
   width: calc(100% - 40px);
 }
+
+.showOptions {
+  position: relative;
+}
+
+.menu {
+  background-color: var(--bg-white);
+  padding: 10px;
+  border-radius: 50px;
+  margin-right: -10px;
+  transition: background-color 200ms;
+  display: flex;
+  gap: 4px;
+  align-items: center;
+}
+
+.arrow svg {
+  width: 16px;
+  height: 16px;
+  fill: var(--bg-slate-500);
+}
+
+.menu:hover {
+  background-color: var(--bg-slate-100);
+}
+
+.hiddenMenu {
+  width: 180px;
+  background-color: var(--bg-white);
+  border: 1px solid var(--bg-slate-200);
+  position: absolute;
+  top: 100%;
+  right: -5px;
+  border-radius: var(--radius);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms;
+  box-shadow: 0px 2px 4px 0px rgba(0, 0, 0, 0.15);
+  padding: 5px 0;
+}
+
+.showOptions:hover .hiddenMenu {
+  opacity: 1;
+  pointer-events: all;
+}
+
+.hiddenMenu a,
+.hiddenMenu span {
+  display: block;
+  padding: 5px 10px;
+  font-size: var(--sm);
+  text-decoration: none;
+  color: var(--bg-slate-600);
+  background-color: var(--bg-white);
+  transition: background-color 200ms;
+}
+
+.hiddenMenu a:hover,
+.hiddenMenu span:hover {
+  background-color: var(--bg-slate-100);
+}
+
+.hiddenMenu div {
+  background-color: var(--bg-slate-200);
+  height: 1px;
+  margin: 5px 0;
+}
+
+.hiddenMenu span {
+  cursor: pointer;
+}
