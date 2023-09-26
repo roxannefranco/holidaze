@@ -48,7 +48,7 @@ function Login() {
         email: result.email,
         venueManager: result.venueManager,
       });
-      navigate("/admin/venues");
+      navigate("/admin/overview");
     }
   };
 
