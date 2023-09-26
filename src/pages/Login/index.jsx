@@ -5,15 +5,12 @@ import WelcomeImage from "../../components/Welcome Image";
 import Button from "../../components/Button";
 import { useState, useEffect } from "react";
 import { authenticateUser } from "../../api/auth";
-import { userAtom } from "../../atoms/auth";
-import { useAtom } from "jotai";
 import { useNavigate } from "react-router-dom";
 
 function Login() {
   const navigate = useNavigate();
 
   // State
-  const [user, setUser] = useAtom(userAtom);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
@@ -42,12 +39,15 @@ function Login() {
     } else {
       // get access token and user and save it on global state
       localStorage.setItem("token", result.accessToken);
-      setUser({
-        avatar: result.avatar,
-        name: result.name,
-        email: result.email,
-        venueManager: result.venueManager,
-      });
+      localStorage.setItem(
+        "user",
+        JSON.stringify({
+          avatar: result.avatar,
+          name: result.name,
+          email: result.email,
+          venueManager: result.venueManager,
+        })
+      );
       navigate("/admin/overview");
     }
   };

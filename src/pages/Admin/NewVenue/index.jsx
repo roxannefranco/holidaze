@@ -199,7 +199,7 @@ function NewVenue() {
             <Button size="lg" type="primary" preIcon="check">
               Create venue
             </Button>
-            <Button size="lg" type="secondary" onClick={goToOverview}>
+            <Button size="lg" type="terciary" onClick={goToOverview}>
               Cancel
             </Button>
           </div>

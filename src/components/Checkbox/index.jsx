@@ -16,7 +16,7 @@ function Checkbox(props) {
 
   return (
     <div className={styles.container}>
-      <input id={id} type="checkbox" value={value} onChange={handleChange} />
+      <input id={id} type="checkbox" checked={value} onChange={handleChange} />
       <label htmlFor={id}>
         <span className={styles.checkbox}>
           <Icon name="check" />

@@ -8,7 +8,7 @@ import Avatar from "../Avatar";
 
 function Header(props) {
   const navigate = useNavigate();
-  const { search } = props;
+  const { search, updatedUser } = props;
 
   // State
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -22,7 +22,7 @@ function Header(props) {
       setIsLoggedIn(true);
       setUser(JSON.parse(userStorage));
     }
-  }, []);
+  }, [updatedUser]);
 
   // Resets authenticated values in local storage
   const logOut = () => {
@@ -54,7 +54,7 @@ function Header(props) {
               </div>
               <div className={styles.hiddenMenu}>
                 <Link to="/admin/overview">Overview</Link>
-                <Link to="/admin/my-account">Manage account</Link>
+                <Link to="/admin/account">Manage account</Link>
                 <div></div>
                 <span onClick={logOut}>Log out</span>
               </div>
