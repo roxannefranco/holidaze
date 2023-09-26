@@ -37,7 +37,7 @@
   height: 36px;
   width: 334px;
   font-family: var(--mainfont);
-  font-size: 14px;
+  font-size: var(--sm);
   font-weight: 400;
   padding-left: 20px;
   color: var(--bg-slate-400);
@@ -49,6 +49,6 @@
 @media (max-width: 610px) {
   .searchInput input {
     width: 210px;
-    font-size: 12px;
+    font-size: var(--xxs);
   }
 }

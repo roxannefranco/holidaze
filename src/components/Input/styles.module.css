@@ -23,7 +23,7 @@
 
 .inputContainer label {
   font-family: var(--mainfont);
-  font-size: 14px;
+  font-size: var(--sm);
   font-weight: 400;
   color: var(--bg-slate-500);
   display: block;

@@ -11,7 +11,7 @@ h1 {
 
 .separator {
   color: var(--bg-slate-600);
-  font-size: 16px;
+  font-size: var(--md);
   font-weight: 500;
 }
 
@@ -25,7 +25,7 @@ h1 {
 }
 
 .mainTitle {
-  font-size: 28px;
+  font-size: var(--xxl);
   color: var(--bg-slate-600);
 }
 

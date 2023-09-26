@@ -43,7 +43,7 @@
 }
 
 .text {
-  font-size: 13px;
+  font-size: var(--xs);
   font-weight: 400;
   color: var(--bg-slate-600);
 }

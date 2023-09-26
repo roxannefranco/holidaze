@@ -24,7 +24,7 @@
 .loginLabels {
   display: block;
   font-family: var(--mainfont);
-  font-size: 14px;
+  font-size: var(--sm);
   font-weight: 400;
   color: var(--bg-slate-500);
   margin-bottom: 5px;
@@ -48,14 +48,14 @@
 .signUp span {
   font-family: var(--mainfont);
   color: var(--bg-slate-500);
-  font-size: 14px;
+  font-size: var(--sm);
 }
 
 .signUp a {
   text-decoration: none;
   cursor: pointer;
   margin-left: 5px;
-  font-size: 14px;
+  font-size: var(--sm);
   color: var(--primary);
 }
 

@@ -12,6 +12,13 @@
   --bg-slate-600: #334155;
   --radius: 6px;
   --mainfont: "Inter", sans-serif;
+  --xxl: 28px;
+  --xl: 24px;
+  --lg: 20px;
+  --md: 16px;
+  --sm: 14px;
+  --xs: 13px;
+  --xxs: 12px;
 }
 
 * {
@@ -22,7 +29,6 @@
 body {
   margin: 0;
   padding: 0;
-  padding-top: 80px;
 }
 
 main {
@@ -45,7 +51,7 @@ svg {
   border-radius: 6px;
   padding: 6px 10px;
   margin-bottom: 10px;
-  font-size: 12px;
+  font-size: var(--xxs);
 }
 
 .error-message p {
