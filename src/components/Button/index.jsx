@@ -4,7 +4,7 @@ import Icon from "../Icon";
 
 function Button(props) {
   // destructure props
-  const { type, size, preIcon, postIcon, block, children } = props;
+  const { type, size, preIcon, postIcon, block, children, onClick } = props;
 
   // use md as default or prop value
   const finalSize = size != null ? size : "md";
@@ -23,9 +23,10 @@ function Button(props) {
             [styles.block]: block,
           }
         )}
+        onClick={onClick}
       >
         <Icon name={preIcon} />
-        {children}
+        <span>{children}</span>
         <Icon name={postIcon} />
       </button>
     </div>

@@ -5,7 +5,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
-import Venues from "./pages/Admin/Venues";
+import Overview from "./pages/Admin/Overview";
 import NewVenue from "./pages/Admin/NewVenue";
 import ProtectedRoute from "./utils/ProtectedRoute";
 
@@ -24,10 +24,10 @@ const routerConfig = createBrowserRouter([
     element: <Register />,
   },
   {
-    path: "/admin/venues",
+    path: "/admin/overview",
     element: (
       <ProtectedRoute>
-        <Venues />
+        <Overview />
       </ProtectedRoute>
     ),
   },
