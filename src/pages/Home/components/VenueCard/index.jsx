@@ -58,7 +58,7 @@ function VenueCard(props) {
       <div className={styles.descriptionContainer}>
         <p className={styles.description}>{description}</p>
       </div>
-      <div className={styles.price}>{price}kr / natt</div>
+      <div className={styles.price}>{price}kr / night</div>
     </Link>
   );
 }
