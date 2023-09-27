@@ -1,0 +1,134 @@
+.card {
+  width: calc(25% - (3 * 40px / 4));
+  text-decoration: none;
+}
+
+.previewContainer {
+  position: relative;
+}
+
+.overlay {
+  position: absolute;
+  inset: 0;
+  border-radius: 12px;
+  background-color: rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  transition: opacity 200ms;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.overlay button {
+  pointer-events: none;
+}
+
+.card:hover .overlay {
+  opacity: 1;
+}
+
+.previewImage {
+  width: 100%;
+  height: 225px;
+  object-fit: cover;
+  border-radius: 12px;
+  background-color: var(--bg-slate-200);
+  margin-bottom: 10px;
+}
+
+img.previewImage {
+  opacity: 0;
+  transition: opacity 200ms;
+  display: block;
+}
+
+img.previewImage.loaded {
+  opacity: 1;
+}
+
+div.previewImage {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.previewImage svg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.nameContainer {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  margin-bottom: 0;
+  margin-top: 3px;
+}
+
+.name {
+  font-size: var(--xs);
+  font-weight: 600;
+  color: var(--bg-slate-600);
+  display: table-cell;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.descriptionContainer {
+  display: table;
+  table-layout: fixed;
+  width: 100%;
+  margin-bottom: 0;
+  margin-top: 3px;
+}
+
+.description {
+  font-size: var(--xs);
+  font-weight: 400;
+  color: var(--bg-slate-600);
+  display: table-cell;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.price {
+  color: var(--primary);
+  font-size: var(--xs);
+  font-weight: 500;
+  margin-bottom: 0;
+  margin-top: 5px;
+}
+
+@media (max-width: 1050px) {
+  .card {
+    width: calc(33.3333% - (2 * 40px / 3));
+  }
+  .previewImage {
+    height: 275px;
+  }
+}
+
+@media (max-width: 875px) {
+  .card {
+    width: calc(50% - 20px);
+  }
+}
+
+@media (max-width: 580px) {
+  .card {
+    width: 100%;
+  }
+  .previewImage {
+    height: 300px;
+  }
+}
+
+@media (max-width: 360px) {
+  .previewImage {
+    height: 225px;
+  }
+}

@@ -36,7 +36,7 @@ function Header(props) {
   return (
     <header className={styles.header}>
       <div className={styles.headerWrapper}>
-        <Link to="#">
+        <Link to="/">
           <div>
             <LogoText />
           </div>
