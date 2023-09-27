@@ -30,7 +30,7 @@
 }
 
 .secondary svg path {
-  stroke: var(--bg-slate-500);
+  fill: var(--bg-slate-500);
 }
 
 .terciary {

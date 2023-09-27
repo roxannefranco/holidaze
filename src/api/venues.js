@@ -76,3 +76,38 @@ export async function getUserVenues(username) {
     return error;
   }
 }
+
+export async function getAllVenues() {
+  try {
+    const response = await fetch(
+      `${apiUrl}/venues?sort=created&sortOrder=desc`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    return error;
+  }
+}
+
+export async function getVenue(id) {
+  try {
+    const response = await fetch(`${apiUrl}/venues/${id}`, {
+      method: "GET",
+      headers: {
+        "Content-Type": "application/json",
+      },
+    });
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    return error;
+  }
+}

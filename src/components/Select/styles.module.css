@@ -1,0 +1,42 @@
+.container {
+  position: relative;
+  font-family: var(--mainfont);
+}
+
+.dropdown {
+  border: 1px solid var(--bg-slate-200);
+  background-color: var(--bg-white);
+  box-sizing: border-box;
+  border-radius: 6px;
+  outline: 0;
+  position: relative;
+}
+
+.dropdown select {
+  appearance: none;
+  border: none;
+  background-color: transparent;
+  height: 40px;
+  padding: 0 10px;
+  cursor: pointer;
+  width: 185px;
+}
+
+.dropdown svg {
+  position: absolute;
+  top: 9px;
+  right: 9px;
+  pointer-events: none;
+}
+
+.dropdown svg path {
+  fill: var(--primary);
+}
+.container label {
+  font-family: var(--mainfont);
+  font-size: var(--sm);
+  font-weight: 400;
+  color: var(--bg-slate-500);
+  display: block;
+  margin-bottom: 5px;
+}
