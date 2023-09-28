@@ -10,6 +10,8 @@ import NewVenue from "./pages/Admin/NewVenue";
 import ProtectedRoute from "./utils/ProtectedRoute";
 import Account from "./pages/Admin/Account";
 import Venue from "./pages/Venue";
+import VenueSettings from "./pages/Admin/VenueSettings";
+import VenueAccess from "./utils/VenueAccess";
 
 // configure the routes
 const routerConfig = createBrowserRouter([
@@ -38,6 +40,16 @@ const routerConfig = createBrowserRouter([
     element: (
       <ProtectedRoute>
         <NewVenue />
+      </ProtectedRoute>
+    ),
+  },
+  {
+    path: "/admin/venue/:id",
+    element: (
+      <ProtectedRoute>
+        <VenueAccess>
+          <VenueSettings />
+        </VenueAccess>
       </ProtectedRoute>
     ),
   },

@@ -98,12 +98,15 @@ export async function getAllVenues() {
 
 export async function getVenue(id) {
   try {
-    const response = await fetch(`${apiUrl}/venues/${id}`, {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    });
+    const response = await fetch(
+      `${apiUrl}/venues/${id}?_owner=true&_bookings=true`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+        },
+      }
+    );
 
     const data = await response.json();
     return data;

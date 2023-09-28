@@ -1,9 +1,16 @@
+import { useNavigate } from "react-router-dom";
 import Button from "../../../../../components/Button";
 import styles from "./styles.module.css";
 
 function VenueRow(props) {
+  const navigate = useNavigate();
+
   // destructure props
-  const { media, name, description, price } = props.venue;
+  const { id, media, name, description, price } = props.venue;
+
+  const goToVenueSettings = () => {
+    navigate(`/admin/venue/${id}`);
+  };
 
   return (
     <div className={styles.row}>
@@ -33,8 +40,13 @@ function VenueRow(props) {
           </div>
         </div>
       </div>
-      <div className={styles.price}>{price}kr / natt</div>
-      <Button type="terciary" size="sm" preIcon="settings">
+      <div className={styles.price}>{price}kr / night</div>
+      <Button
+        type="terciary"
+        size="sm"
+        preIcon="settings"
+        onClick={goToVenueSettings}
+      >
         Manage
       </Button>
     </div>
