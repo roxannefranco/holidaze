@@ -8,6 +8,7 @@ import { useNavigate, useParams } from "react-router-dom";
 import Icon from "../../../components/Icon";
 import { getBooking } from "../../../api/bookings";
 import BookingRow from "./components/BookingRow";
+import moment from "moment";
 
 function VenueSettings() {
   const { id } = useParams();
@@ -38,12 +39,21 @@ function VenueSettings() {
     // will wait for all async calls
     await Promise.all(
       venue.bookings.map(async (booking) => {
-        const result = await getBooking(booking.id);
-        bookingsWithCustomer.push(result);
+        if (moment().diff(moment(booking.dateTo), "days") <= 0) {
+          const result = await getBooking(booking.id);
+          bookingsWithCustomer.push(result);
+        }
       })
     );
 
-    setBookings(bookingsWithCustomer);
+    setBookings(
+      // Sort from closest to date
+      bookingsWithCustomer.sort((a, b) => {
+        if (a.dateFrom > b.dateFrom) return 1;
+        if (a.dateFrom < b.dateFrom) return -1;
+        return 0;
+      })
+    );
   };
 
   const goToOverview = () => {
@@ -132,9 +142,9 @@ function VenueSettings() {
               </div>
             </div>
 
-            {/* Scheduled bookings */}
+            {/* Upcoming bookings */}
             <div className={styles.bookingsContainer}>
-              <h3>Scheduled bookings</h3>
+              <h3>Upcoming bookings</h3>
               {venue.bookings.length === bookings.length ? (
                 <div className={styles.bookings}>
                   {bookings.map((booking) => (

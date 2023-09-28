@@ -128,3 +128,9 @@ div.previewImage {
   color: var(--bg-slate-500);
   font-weight: 400;
 }
+
+@media (max-width: 864px) {
+  .content {
+    flex-direction: column;
+  }
+}
