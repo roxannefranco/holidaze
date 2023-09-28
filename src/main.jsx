@@ -12,6 +12,7 @@ import Account from "./pages/Admin/Account";
 import Venue from "./pages/Venue";
 import VenueSettings from "./pages/Admin/VenueSettings";
 import VenueAccess from "./utils/VenueAccess";
+import BookingSuccess from "./pages/BookingSuccess";
 
 // configure the routes
 const routerConfig = createBrowserRouter([
@@ -64,6 +65,10 @@ const routerConfig = createBrowserRouter([
   {
     path: "/venue/:id",
     element: <Venue />,
+  },
+  {
+    path: "/booking-success/:id",
+    element: <BookingSuccess />,
   },
 ]);
 

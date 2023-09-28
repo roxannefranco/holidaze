@@ -1,0 +1,68 @@
+.container {
+  border-radius: 10px;
+  border: 1px solid var(--bg-slate-200);
+  background-color: var(--bg-white);
+  padding: 40px;
+  margin-top: -80px;
+}
+
+.container button {
+  margin-top: 10px;
+}
+
+.price {
+  font-size: var(--xl);
+  font-weight: 500;
+  color: var(--bg-slate-600);
+}
+
+.price span {
+  font-size: var(--md);
+  font-weight: 400;
+  color: var(--bg-slate-500);
+}
+
+.formContainer {
+  margin-top: 30px;
+}
+
+.totals {
+  margin-top: 30px;
+  margin-bottom: 20px;
+}
+
+.sum,
+.total {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 6px;
+}
+
+.sum div {
+  font-size: var(--sm);
+  font-weight: 500;
+  color: var(--bg-slate-600);
+}
+
+.sum span {
+  font-size: var(--sm);
+  color: var(--bg-slate-500);
+}
+
+.total {
+  margin-top: 10px;
+}
+
+.total div {
+  font-size: var(--md);
+  text-transform: uppercase;
+  font-weight: 600;
+  color: var(--bg-slate-600);
+}
+
+.total span {
+  font-size: var(--md);
+  font-weight: 500;
+  color: var(--bg-slate-500);
+}
