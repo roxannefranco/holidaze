@@ -43,3 +43,13 @@
   display: flex;
   gap: 10px;
 }
+
+@media (max-width: 475px) {
+  .inputs {
+    display: block;
+  }
+  .inputContainer input {
+    max-width: 100%;
+    width: 100%;
+  }
+}

@@ -98,3 +98,25 @@
 .booking {
   flex: 45;
 }
+
+@media (max-width: 820px) {
+  .infoWrapper {
+    display: block;
+  }
+}
+
+@media (max-width: 680px) {
+  .header {
+    display: block;
+  }
+  .ratingAndMaps {
+    margin-top: 20px;
+  }
+}
+
+@media (max-width: 466px) {
+  .infoContainer {
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}

@@ -78,3 +78,9 @@ svg {
   padding-top: 80px;
   padding-bottom: 80px;
 }
+
+@media (max-width: 475px) {
+  .react-datepicker-wrapper {
+    width: 100%;
+  }
+}
