@@ -42,6 +42,12 @@ main {
   margin: 0 auto;
 }
 
+.center-content-sm {
+  max-width: 800px;
+  width: calc(100% - 40px);
+  margin: 0 auto;
+}
+
 svg {
   display: block;
 }
@@ -77,4 +83,10 @@ svg {
 .with-header {
   padding-top: 80px;
   padding-bottom: 80px;
+}
+
+@media (max-width: 475px) {
+  .react-datepicker-wrapper {
+    width: 100%;
+  }
 }

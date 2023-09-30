@@ -1,0 +1,55 @@
+.inputContainer {
+  position: relative;
+  font-family: var(--mainfont);
+  margin-bottom: 20px;
+}
+
+.inputContainer input {
+  border: 1px solid var(--bg-slate-200);
+  box-sizing: border-box;
+  border-radius: 6px;
+  outline: 0;
+  height: 40px;
+  max-width: 170px;
+  padding: 0 10px;
+  font-size: var(--xs);
+}
+
+.inputContainer label {
+  font-family: var(--mainfont);
+  font-size: 14px;
+  font-weight: 400;
+  color: var(--bg-slate-500);
+  display: block;
+  margin-bottom: 5px;
+}
+
+.loginIcons {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+}
+
+.loginIcons svg {
+  width: 20px;
+  height: 20px;
+}
+
+.loginIcons svg path {
+  fill: var(--primary);
+}
+
+.inputs {
+  display: flex;
+  gap: 10px;
+}
+
+@media (max-width: 475px) {
+  .inputs {
+    display: block;
+  }
+  .inputContainer input {
+    max-width: 100%;
+    width: 100%;
+  }
+}

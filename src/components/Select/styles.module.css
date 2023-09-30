@@ -19,7 +19,8 @@
   height: 40px;
   padding: 0 10px;
   cursor: pointer;
-  width: 185px;
+  width: 100%;
+  min-width: 185px;
 }
 
 .dropdown svg {

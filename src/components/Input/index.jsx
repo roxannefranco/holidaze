@@ -13,6 +13,7 @@ function Input(props) {
     placeholder,
     textarea,
     setValue,
+    date,
     media,
   } = props;
 
