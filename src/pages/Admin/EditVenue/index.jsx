@@ -6,7 +6,7 @@ import Checkbox from "../../../components/Checkbox";
 import Button from "../../../components/Button";
 import CountrySelect from "../../../components/CountrySelect";
 import { useState, useEffect } from "react";
-import { getVenue, editVenue } from "../../../api/venues";
+import { getVenue, editVenue, deleteVenue } from "../../../api/venues";
 import { useNavigate, useParams } from "react-router-dom";
 
 function EditVenue() {
@@ -105,8 +105,19 @@ function EditVenue() {
     }
   };
 
-  const goToVenueSettings = () => {
+  const goToVenueSettings = (e) => {
+    e.preventDefault();
     navigate(`/admin/venue/${id}`);
+  };
+
+  const askUserToDelete = (e) => {
+    e.preventDefault();
+    const result = window.confirm("Are you sure?");
+    if (result) {
+      // user said yes, delete
+      deleteVenue(id);
+      navigate(`/admin/overview`);
+    }
   };
 
   return (
@@ -225,6 +236,9 @@ function EditVenue() {
           <div className={styles.btns}>
             <Button size="lg" type="primary" preIcon="check">
               Save changes
+            </Button>
+            <Button size="lg" type="secondary" onClick={askUserToDelete}>
+              Delete venue
             </Button>
             <Button size="lg" type="terciary" onClick={goToVenueSettings}>
               Cancel

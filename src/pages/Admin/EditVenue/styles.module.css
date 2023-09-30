@@ -65,3 +65,7 @@ h1 {
   display: flex;
   gap: 20px;
 }
+
+.btns > div:nth-child(2) button span {
+  color: #d82626;
+}

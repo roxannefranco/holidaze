@@ -155,6 +155,23 @@ export async function getAllVenues() {
   }
 }
 
+export async function deleteVenue(id) {
+  try {
+    const accessToken = localStorage.getItem("token");
+    const response = await fetch(`${apiUrl}/venues/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `Bearer ${accessToken}`,
+      },
+    });
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    return error;
+  }
+}
 export async function getVenue(id) {
   try {
     const response = await fetch(
