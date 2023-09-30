@@ -94,6 +94,7 @@ function Media(props) {
           {media.map((url, index) => {
             return (
               <img
+                key={index}
                 src={url}
                 className={index === activePhoto ? styles.active : ""}
               />

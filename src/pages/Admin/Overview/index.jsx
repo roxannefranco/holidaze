@@ -8,10 +8,11 @@ import { getUserVenues } from "../../../api/venues";
 import { getUserBookings } from "../../../api/bookings";
 import VenueRow from "./components/VenueRow";
 import BookingRow from "./components/BookingRow";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useSearchParams } from "react-router-dom";
 
 function Overview() {
   const navigate = useNavigate();
+  const [searchParams, setSearchParams] = useSearchParams();
 
   // State
   const [user, setUser] = useState(null);
@@ -36,14 +37,22 @@ function Overview() {
     }
   }, [user]);
 
+  // Detect if any search parameter is present in URL and if so, change active tab
+  useEffect(() => {
+    const tab = searchParams.get("tab");
+    if (tab === "bookings" || tab === "venues") {
+      setActiveTab(tab);
+    } else {
+      // Set default to bookings
+      setActiveTab("bookings");
+      setSearchParams(`?tab=bookings`);
+    }
+  }, [searchParams]);
+
   // Fetch venues from API
   const fetchVenues = async (username) => {
     const result = await getUserVenues(username);
     setVenues(result);
-
-    if (result.length > 0) {
-      setActiveTab("venues");
-    }
   };
 
   // Fetch bookings from API
@@ -58,6 +67,12 @@ function Overview() {
 
   const goToAccount = () => {
     navigate("/admin/account");
+  };
+
+  const changeTab = (tab) => {
+    setActiveTab(tab);
+    // Change query parameters in the URL
+    setSearchParams(`?tab=${tab}`);
   };
 
   return (
@@ -93,13 +108,13 @@ function Overview() {
               <ul>
                 <li
                   className={activeTab === "venues" ? styles.active : ""}
-                  onClick={() => setActiveTab("venues")}
+                  onClick={() => changeTab("venues")}
                 >
                   My Venues
                 </li>
                 <li
                   className={activeTab === "bookings" ? styles.active : ""}
-                  onClick={() => setActiveTab("bookings")}
+                  onClick={() => changeTab("bookings")}
                 >
                   My Bookings
                 </li>
