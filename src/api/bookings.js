@@ -21,6 +21,27 @@ export async function getBooking(id) {
   }
 }
 
+export async function getUserBookings(username) {
+  try {
+    const accessToken = localStorage.getItem("token");
+    const response = await fetch(
+      `${apiUrl}/profiles/${username}/bookings?_venue=true`,
+      {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${accessToken}`,
+        },
+      }
+    );
+
+    const data = await response.json();
+    return data;
+  } catch (error) {
+    return error;
+  }
+}
+
 export async function newBooking(dateFrom, dateTo, guests, venueId) {
   try {
     const body = {

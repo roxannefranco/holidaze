@@ -5,7 +5,9 @@ import Avatar from "../../../components/Avatar";
 import Button from "../../../components/Button";
 import Layout from "../../../components/Layout";
 import { getUserVenues } from "../../../api/venues";
+import { getUserBookings } from "../../../api/bookings";
 import VenueRow from "./components/VenueRow";
+import BookingRow from "./components/BookingRow";
 import { useNavigate } from "react-router-dom";
 
 function Overview() {
@@ -14,6 +16,7 @@ function Overview() {
   // State
   const [user, setUser] = useState(null);
   const [venues, setVenues] = useState([]);
+  const [bookings, setBookings] = useState([]);
   const [activeTab, setActiveTab] = useState(null);
 
   useEffect(() => {
@@ -29,6 +32,7 @@ function Overview() {
     if (user != null && user) {
       // Call async function outside useEffect
       fetchVenues(user.name);
+      fetchBookings(user.name);
     }
   }, [user]);
 
@@ -40,6 +44,12 @@ function Overview() {
     if (result.length > 0) {
       setActiveTab("venues");
     }
+  };
+
+  // Fetch bookings from API
+  const fetchBookings = async (username) => {
+    const result = await getUserBookings(username);
+    setBookings(result);
   };
 
   const goToNewVenue = () => {
@@ -111,6 +121,20 @@ function Overview() {
                       Add new
                     </Button>
                   </div>
+                </div>
+              ) : null}
+
+              {activeTab === "bookings" ? (
+                <div className={styles.venueList}>
+                  {bookings
+                    .sort((a, b) => {
+                      if (a.dateFrom < b.dateFrom) return 1;
+                      if (a.dateFrom > b.dateFrom) return -1;
+                      return 0;
+                    })
+                    .map((booking) => {
+                      return <BookingRow key={booking.id} booking={booking} />;
+                    })}
                 </div>
               ) : null}
             </div>
