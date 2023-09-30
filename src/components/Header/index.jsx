@@ -26,7 +26,7 @@ function Header(props) {
 
   // Resets authenticated values in local storage
   const logOut = () => {
-    navigate("/login");
+    navigate("/");
     localStorage.removeItem("token");
     localStorage.removeItem("user");
     setIsLoggedIn(false);
