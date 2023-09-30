@@ -5,6 +5,13 @@
   border-bottom: 1px solid var(--bg-slate-200);
   justify-content: space-between;
   gap: 40px;
+  cursor: pointer;
+  transition: background-color 200ms;
+  background-color: var(--bg-white);
+}
+
+.row:hover {
+  background-color: var(--bg-slate-100);
 }
 
 .info {

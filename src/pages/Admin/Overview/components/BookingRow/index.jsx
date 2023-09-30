@@ -8,8 +8,12 @@ function BookingRow(props) {
   // destructure props
   const { venue, dateFrom, dateTo } = props.booking;
 
+  const goToVenue = () => {
+    navigate(`/venue/${venue.id}`);
+  };
+
   return (
-    <div className={styles.row}>
+    <div className={styles.row} onClick={goToVenue}>
       <div className={styles.info}>
         {venue.media.length ? (
           <img src={venue.media[0]} alt="" className={styles.previewImage} />
