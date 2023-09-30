@@ -1,0 +1,67 @@
+h1 {
+  margin-bottom: 40px;
+}
+
+.btns {
+  display: flex;
+}
+.btns Button {
+  margin-right: 10px;
+}
+
+.separator {
+  color: var(--bg-slate-600);
+  font-size: var(--md);
+  font-weight: 500;
+}
+
+.priceGuests {
+  display: flex;
+  gap: 20px;
+}
+
+.price {
+  max-width: 153px;
+}
+
+.mainTitle {
+  font-size: var(--xxl);
+  color: var(--bg-slate-600);
+}
+
+.formWrapper {
+  width: 100%;
+  max-width: 510px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.formWrapper input,
+.formWrapper textarea {
+  width: 100%;
+}
+
+.priceGuests input {
+  max-width: 150px;
+}
+
+.amenitiesBox {
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
+
+.checks {
+  display: flex;
+  gap: 26px;
+  margin-top: 20px;
+}
+
+.location {
+  margin-bottom: 15px;
+}
+
+.address1,
+.address2 {
+  display: flex;
+  gap: 20px;
+}

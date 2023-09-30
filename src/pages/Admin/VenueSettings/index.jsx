@@ -60,6 +60,10 @@ function VenueSettings() {
     navigate("/admin/overview");
   };
 
+  const goToEditForm = () => {
+    navigate(`/admin/venue/${id}/edit`);
+  };
+
   return (
     <Layout>
       <Header></Header>
@@ -88,9 +92,9 @@ function VenueSettings() {
                     <h2>{venue.name}</h2>
                     <Button
                       size="sm"
-                      type="terciary"
+                      type="primary"
                       preIcon="pencil"
-                      onClick={goToOverview}
+                      onClick={goToEditForm}
                     >
                       Edit
                     </Button>
