@@ -1,6 +1,6 @@
 import Button from "../../../../components/Button";
 import styles from "./styles.module.css";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import CheckInDates from "../../../../components/CheckInDates";
 import Select from "../../../../components/Select";
 import { useNavigate } from "react-router-dom";
@@ -14,10 +14,18 @@ function BookingForm(props) {
   const { venue } = props;
 
   // state
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
   const [dateFrom, setDateFrom] = useState(null);
   const [dateTo, setDateTo] = useState(null);
   const [guests, setGuests] = useState(1);
   const [errors, setErrors] = useState([]);
+
+  useEffect(() => {
+    const userStorage = localStorage.getItem("user");
+    if (userStorage != null) {
+      setIsLoggedIn(true);
+    }
+  }, []);
 
   const guestsOptions = [];
 
@@ -28,8 +36,14 @@ function BookingForm(props) {
     });
   }
 
-  const goToVenues = () => {
+  const goToVenues = (e) => {
+    e.preventDefault();
     navigate("/");
+  };
+
+  const goToLogin = (e) => {
+    e.preventDefault();
+    navigate("/login");
   };
 
   const saveBooking = async (e) => {
@@ -98,9 +112,13 @@ function BookingForm(props) {
           </div>
         ) : null}
 
-        {dateFrom != null && dateTo != null ? (
+        {dateFrom != null && dateTo != null && isLoggedIn ? (
           <Button block type="primary">
             Request booking
+          </Button>
+        ) : dateFrom != null && dateTo != null ? (
+          <Button block type="primary" onClick={goToLogin}>
+            Log in to book
           </Button>
         ) : null}
       </form>
