@@ -120,7 +120,7 @@ function Overview() {
                 </li>
               </ul>
 
-              {activeTab === "venues" ? (
+              {activeTab === "venues" && user.venueManager ? (
                 <div>
                   <div className={styles.venueList}>
                     {venues.map((venue) => {
@@ -134,6 +134,19 @@ function Overview() {
                       onClick={goToNewVenue}
                     >
                       Add new
+                    </Button>
+                  </div>
+                </div>
+              ) : activeTab === "venues" ? (
+                <div className={styles.notHost}>
+                  <h4>Want to start hosting your own venues?</h4>
+                  <div className={styles.venueActions}>
+                    <Button
+                      type="primary"
+                      preIcon="settings"
+                      onClick={goToAccount}
+                    >
+                      Become a host
                     </Button>
                   </div>
                 </div>

@@ -74,6 +74,22 @@
   padding: 4px;
 }
 
+.notHost {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 30px;
+}
+
+.notHost h4 {
+  font-size: var(--md);
+  font-weight: 500;
+  color: var(--bg-slate-600);
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
 /* Responsive */
 @media (max-width: 960px) {
   .profileWrapper img,
