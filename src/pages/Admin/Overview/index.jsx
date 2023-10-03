@@ -164,17 +164,23 @@ function Overview() {
               {activeTab === "bookings" ? (
                 bookingsLoaded ? (
                   <div className={styles.venueList}>
-                    {bookings
-                      .sort((a, b) => {
-                        if (a.dateFrom < b.dateFrom) return 1;
-                        if (a.dateFrom > b.dateFrom) return -1;
-                        return 0;
-                      })
-                      .map((booking) => {
-                        return (
-                          <BookingRow key={booking.id} booking={booking} />
-                        );
-                      })}
+                    {bookings.length ? (
+                      bookings
+                        .sort((a, b) => {
+                          if (a.dateFrom < b.dateFrom) return 1;
+                          if (a.dateFrom > b.dateFrom) return -1;
+                          return 0;
+                        })
+                        .map((booking) => {
+                          return (
+                            <BookingRow key={booking.id} booking={booking} />
+                          );
+                        })
+                    ) : (
+                      <div className={styles.noBookings}>
+                        <span>No bookings scheduled.</span>
+                      </div>
+                    )}
                   </div>
                 ) : (
                   <Loader />

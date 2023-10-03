@@ -9,6 +9,7 @@ import Icon from "../../../components/Icon";
 import { getBooking } from "../../../api/bookings";
 import BookingRow from "./components/BookingRow";
 import moment from "moment";
+import Loader from "../../../components/Loader";
 
 function VenueSettings() {
   const { id } = useParams();
@@ -17,6 +18,7 @@ function VenueSettings() {
   // State
   const [venue, setVenue] = useState(null);
   const [bookings, setBookings] = useState([]);
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     fetchVenue(id);
@@ -25,6 +27,7 @@ function VenueSettings() {
   const fetchVenue = async (id) => {
     const result = await getVenue(id);
     setVenue(result);
+    setLoaded(true);
   };
 
   useEffect(() => {
@@ -149,13 +152,23 @@ function VenueSettings() {
             {/* Upcoming bookings */}
             <div className={styles.bookingsContainer}>
               <h3>Upcoming bookings</h3>
-              {venue.bookings.length === bookings.length ? (
-                <div className={styles.bookings}>
-                  {bookings.map((booking) => (
-                    <BookingRow key={booking.id} booking={booking} />
-                  ))}
-                </div>
-              ) : null}
+              {loaded ? (
+                venue.bookings.length === bookings.length ? (
+                  <div className={styles.bookings}>
+                    {bookings.length ? (
+                      bookings.map((booking) => (
+                        <BookingRow key={booking.id} booking={booking} />
+                      ))
+                    ) : (
+                      <div className={styles.noBookings}>
+                        <span>No bookings.</span>
+                      </div>
+                    )}
+                  </div>
+                ) : null
+              ) : (
+                <Loader />
+              )}
             </div>
           </div>
         </div>

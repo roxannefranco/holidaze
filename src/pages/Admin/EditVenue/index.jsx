@@ -100,7 +100,7 @@ function EditVenue() {
       if (result.errors != null) {
         setErrors(result.errors.map((error) => error.message));
       } else {
-        goToVenueSettings();
+        goToVenueSettings(e);
       }
     }
   };
@@ -112,7 +112,9 @@ function EditVenue() {
 
   const askUserToDelete = (e) => {
     e.preventDefault();
-    const result = window.confirm("Are you sure?");
+    const result = window.confirm(
+      "Are you sure you want to delete your Venue? This action cannot be undone."
+    );
     if (result) {
       // user said yes, delete
       deleteVenue(id);

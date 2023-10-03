@@ -90,6 +90,23 @@
   margin-bottom: 10px;
 }
 
+.noBookings {
+  font-size: var(--md);
+
+  color: var(--bg-slate-600);
+  margin-top: 0;
+  margin-bottom: 10px;
+}
+
+.noBookings span {
+  display: flex;
+  font-weight: 500;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  padding: 30px;
+}
+
 /* Responsive */
 @media (max-width: 960px) {
   .profileWrapper img,

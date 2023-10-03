@@ -1,4 +1,5 @@
 .avatar {
   border-radius: 1000px;
   overflow: hidden;
+  object-fit: cover;
 }
