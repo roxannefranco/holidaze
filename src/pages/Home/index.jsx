@@ -4,6 +4,7 @@ import Header from "../../components/Header";
 import styles from "./styles.module.css";
 import Select from "../../components/Select";
 import Button from "../../components/Button";
+import Loader from "../../components/Loader";
 import { countries } from "../../configs/countries";
 import { getAllVenues } from "../../api/venues";
 import VenueCard from "./components/VenueCard";
@@ -15,6 +16,7 @@ function Home() {
   const [venues, setVenues] = useState([]);
   const [countryFilter, setCountryFilter] = useState(null);
   const [guestsFilter, setGuestsFilter] = useState(null);
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     fetchVenues();
@@ -24,6 +26,7 @@ function Home() {
   const fetchVenues = async () => {
     const result = await getAllVenues();
     setVenues(result);
+    setLoaded(true);
   };
 
   const countriesOptions = [{ value: 0, label: "Where are you staying?" }];
@@ -118,11 +121,15 @@ function Home() {
         ) : null}
 
         {/* Venues */}
-        <div className={styles.venuesList}>
-          {filteredVenues.map((venue) => (
-            <VenueCard key={venue.id} venue={venue} />
-          ))}
-        </div>
+        {loaded ? (
+          <div className={styles.venuesList}>
+            {filteredVenues.map((venue) => (
+              <VenueCard key={venue.id} venue={venue} />
+            ))}
+          </div>
+        ) : (
+          <Loader />
+        )}
       </div>
     </Layout>
   );

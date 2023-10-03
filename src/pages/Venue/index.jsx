@@ -8,12 +8,14 @@ import { useParams } from "react-router-dom";
 import { getVenue } from "../../api/venues";
 import Icon from "../../components/Icon";
 import BookingForm from "./components/BookingForm";
+import Loader from "../../components/Loader";
 
 function Venue() {
   const { id } = useParams();
 
   // State
   const [venue, setVenue] = useState(null);
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     fetchVenue(id);
@@ -22,6 +24,7 @@ function Venue() {
   const fetchVenue = async (id) => {
     const result = await getVenue(id);
     setVenue(result);
+    setLoaded(true);
   };
 
   const goToGoogleMaps = () => {
@@ -71,48 +74,52 @@ function Venue() {
       ) : null}
 
       {/* Info */}
-      {venue != null ? (
-        <div className={styles.infoContainer}>
-          <div className="center-content">
-            <div className={styles.infoWrapper}>
-              <div className={styles.info}>
-                <h4>The space</h4>
-                <p>{venue.description}</p>
-                <h4>Amenities</h4>
-                <div className={styles.amenities}>
-                  {venue.meta.wifi ? (
-                    <div>
-                      <Icon name="wifi" />
-                      <span>Wifi</span>
-                    </div>
-                  ) : null}
-                  {venue.meta.parking ? (
-                    <div>
-                      <Icon name="parking" />
-                      <span>Parking</span>
-                    </div>
-                  ) : null}
-                  {venue.meta.breakfast ? (
-                    <div>
-                      <Icon name="breakfast" />
-                      <span>Breakfast</span>
-                    </div>
-                  ) : null}
-                  {venue.meta.pets ? (
-                    <div>
-                      <Icon name="pets" />
-                      <span>Pet friendly</span>
-                    </div>
-                  ) : null}
+      {loaded ? (
+        venue != null ? (
+          <div className={styles.infoContainer}>
+            <div className="center-content">
+              <div className={styles.infoWrapper}>
+                <div className={styles.info}>
+                  <h4>The space</h4>
+                  <p>{venue.description}</p>
+                  <h4>Amenities</h4>
+                  <div className={styles.amenities}>
+                    {venue.meta.wifi ? (
+                      <div>
+                        <Icon name="wifi" />
+                        <span>Wifi</span>
+                      </div>
+                    ) : null}
+                    {venue.meta.parking ? (
+                      <div>
+                        <Icon name="parking" />
+                        <span>Parking</span>
+                      </div>
+                    ) : null}
+                    {venue.meta.breakfast ? (
+                      <div>
+                        <Icon name="breakfast" />
+                        <span>Breakfast</span>
+                      </div>
+                    ) : null}
+                    {venue.meta.pets ? (
+                      <div>
+                        <Icon name="pets" />
+                        <span>Pet friendly</span>
+                      </div>
+                    ) : null}
+                  </div>
                 </div>
-              </div>
-              <div className={styles.booking}>
-                <BookingForm venue={venue} />
+                <div className={styles.booking}>
+                  <BookingForm venue={venue} />
+                </div>
               </div>
             </div>
           </div>
-        </div>
-      ) : null}
+        ) : null
+      ) : (
+        <Loader />
+      )}
     </Layout>
   );
 }

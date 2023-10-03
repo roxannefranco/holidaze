@@ -9,6 +9,7 @@ import { getUserBookings } from "../../../api/bookings";
 import VenueRow from "./components/VenueRow";
 import BookingRow from "./components/BookingRow";
 import { useNavigate, useSearchParams } from "react-router-dom";
+import Loader from "../../../components/Loader";
 
 function Overview() {
   const navigate = useNavigate();
@@ -19,6 +20,8 @@ function Overview() {
   const [venues, setVenues] = useState([]);
   const [bookings, setBookings] = useState([]);
   const [activeTab, setActiveTab] = useState(null);
+  const [bookingsLoaded, setBookingsLoaded] = useState(false);
+  const [venuesLoaded, setVenuesLoaded] = useState(false);
 
   useEffect(() => {
     const userStorage = localStorage.getItem("user");
@@ -53,12 +56,14 @@ function Overview() {
   const fetchVenues = async (username) => {
     const result = await getUserVenues(username);
     setVenues(result);
+    setVenuesLoaded(true);
   };
 
   // Fetch bookings from API
   const fetchBookings = async (username) => {
     const result = await getUserBookings(username);
     setBookings(result);
+    setBookingsLoaded(true);
   };
 
   const goToNewVenue = () => {
@@ -121,22 +126,26 @@ function Overview() {
               </ul>
 
               {activeTab === "venues" && user.venueManager ? (
-                <div>
-                  <div className={styles.venueList}>
-                    {venues.map((venue) => {
-                      return <VenueRow key={venue.id} venue={venue} />;
-                    })}
+                venuesLoaded ? (
+                  <div>
+                    <div className={styles.venueList}>
+                      {venues.map((venue) => {
+                        return <VenueRow key={venue.id} venue={venue} />;
+                      })}
+                    </div>
+                    <div className={styles.venueActions}>
+                      <Button
+                        type="terciary"
+                        preIcon="add"
+                        onClick={goToNewVenue}
+                      >
+                        Add new
+                      </Button>
+                    </div>
                   </div>
-                  <div className={styles.venueActions}>
-                    <Button
-                      type="terciary"
-                      preIcon="add"
-                      onClick={goToNewVenue}
-                    >
-                      Add new
-                    </Button>
-                  </div>
-                </div>
+                ) : (
+                  <Loader />
+                )
               ) : activeTab === "venues" ? (
                 <div className={styles.notHost}>
                   <h4>Want to start hosting your own venues?</h4>
@@ -153,17 +162,23 @@ function Overview() {
               ) : null}
 
               {activeTab === "bookings" ? (
-                <div className={styles.venueList}>
-                  {bookings
-                    .sort((a, b) => {
-                      if (a.dateFrom < b.dateFrom) return 1;
-                      if (a.dateFrom > b.dateFrom) return -1;
-                      return 0;
-                    })
-                    .map((booking) => {
-                      return <BookingRow key={booking.id} booking={booking} />;
-                    })}
-                </div>
+                bookingsLoaded ? (
+                  <div className={styles.venueList}>
+                    {bookings
+                      .sort((a, b) => {
+                        if (a.dateFrom < b.dateFrom) return 1;
+                        if (a.dateFrom > b.dateFrom) return -1;
+                        return 0;
+                      })
+                      .map((booking) => {
+                        return (
+                          <BookingRow key={booking.id} booking={booking} />
+                        );
+                      })}
+                  </div>
+                ) : (
+                  <Loader />
+                )
               ) : null}
             </div>
           </div>
