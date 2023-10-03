@@ -58,6 +58,8 @@ function Home() {
   const clearSearch = () => {
     setCountryFilter(null);
     setGuestsFilter(null);
+    setCountry(0);
+    setGuests(2);
   };
 
   const filteredVenues = venues
