@@ -119,4 +119,10 @@
     margin-top: 0;
     margin-bottom: 0;
   }
+
+  .amenities {
+    gap: 15px;
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
