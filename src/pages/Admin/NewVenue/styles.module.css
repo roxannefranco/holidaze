@@ -30,7 +30,7 @@ h1 {
 }
 
 .formWrapper {
-  width: 100%;
+  width: calc(100% - 40px);
   max-width: 510px;
   margin-left: auto;
   margin-right: auto;
@@ -64,4 +64,11 @@ h1 {
 .address2 {
   display: flex;
   gap: 20px;
+}
+
+@media (max-width: 450px) {
+  .checks {
+    flex-direction: column;
+    gap: 10px;
+  }
 }

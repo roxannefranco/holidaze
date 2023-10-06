@@ -14,6 +14,7 @@ import VenueSettings from "./pages/Admin/VenueSettings";
 import VenueAccess from "./utils/VenueAccess";
 import BookingSuccess from "./pages/BookingSuccess";
 import EditVenue from "./pages/Admin/EditVenue";
+import NotFound from "./pages/NotFound";
 
 // configure the routes
 const routerConfig = createBrowserRouter([
@@ -80,6 +81,10 @@ const routerConfig = createBrowserRouter([
   {
     path: "/booking-success/:id",
     element: <BookingSuccess />,
+  },
+  {
+    path: "*",
+    element: <NotFound />,
   },
 ]);
 

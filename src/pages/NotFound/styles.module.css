@@ -1,0 +1,14 @@
+.notFound {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.notFound h1 {
+  font-size: var(--xl);
+  color: var(--bg-slate-600);
+  font-weight: 600;
+  margin-top: 80px;
+  margin-bottom: 20px;
+}

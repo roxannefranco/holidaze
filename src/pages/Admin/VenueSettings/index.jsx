@@ -174,7 +174,11 @@ function VenueSettings() {
                       </div>
                     )}
                   </div>
-                ) : null
+                ) : (
+                  <div className={styles.noBookings}>
+                    <span>No bookings.</span>
+                  </div>
+                )
               ) : (
                 <Loader />
               )}
