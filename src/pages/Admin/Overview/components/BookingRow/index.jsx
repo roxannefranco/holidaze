@@ -16,7 +16,11 @@ function BookingRow(props) {
     <div className={styles.row} onClick={goToVenue}>
       <div className={styles.info}>
         {venue.media.length ? (
-          <img src={venue.media[0]} alt="" className={styles.previewImage} />
+          <img
+            src={venue.media[0]}
+            alt="venue image"
+            className={styles.previewImage}
+          />
         ) : (
           <svg
             className={styles.previewImage}

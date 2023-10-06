@@ -1,6 +1,7 @@
 import styles from "./styles.module.css";
 import Header from "../../../components/Header";
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import Avatar from "../../../components/Avatar";
 import Button from "../../../components/Button";
 import Layout from "../../../components/Layout";
@@ -63,6 +64,14 @@ function Account() {
 
   return (
     <Layout>
+      <Helmet>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Account" />
+        <meta name="keywords" content="account, manage, avatar, profile" />
+        <meta name="author" content="Roxanne Franco" />
+        <title>Account</title>
+      </Helmet>
       <Header updatedUser={user}></Header>
       <div className="center-content">
         <div className={styles.container}>

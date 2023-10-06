@@ -6,6 +6,7 @@ import Checkbox from "../../../components/Checkbox";
 import Button from "../../../components/Button";
 import CountrySelect from "../../../components/CountrySelect";
 import { useState, useEffect } from "react";
+import { Helmet } from "react-helmet";
 import { getVenue, editVenue, deleteVenue } from "../../../api/venues";
 import { useNavigate, useParams } from "react-router-dom";
 
@@ -124,6 +125,14 @@ function EditVenue() {
 
   return (
     <Layout>
+      <Helmet>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Edit venue" />
+        <meta name="keywords" content="edit, change, update" />
+        <meta name="author" content="Roxanne Franco" />
+        <title>Edit Venue</title>
+      </Helmet>
       <Header></Header>
       <div className={styles.formWrapper}>
         <h1 className={styles.mainTitle}>New Venue</h1>

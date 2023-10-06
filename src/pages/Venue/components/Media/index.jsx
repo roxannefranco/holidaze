@@ -50,22 +50,22 @@ function Media(props) {
       >
         <div className={styles.mainImage}>
           <div>
-            <img src={media[0]} alt="" onClick={() => open(0)} />
+            <img src={media[0]} alt="venue image" onClick={() => open(0)} />
           </div>
         </div>
         {media[1] != null ? (
           <div className={styles.otherImages}>
             <div>
-              <img src={media[1]} alt="" onClick={() => open(1)} />
+              <img src={media[1]} alt="venue image" onClick={() => open(1)} />
             </div>
             {media[2] != null ? (
               <div>
-                <img src={media[2]} alt="" onClick={() => open(2)} />
+                <img src={media[2]} alt="venue image" onClick={() => open(2)} />
               </div>
             ) : null}
             {media[3] != null ? (
               <div>
-                <img src={media[3]} alt="" onClick={() => open(3)} />
+                <img src={media[3]} alt="venue image" onClick={() => open(3)} />
               </div>
             ) : null}
           </div>

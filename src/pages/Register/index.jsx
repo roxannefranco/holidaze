@@ -7,6 +7,7 @@ import Button from "../../components/Button";
 import { registerUser } from "../../api/auth";
 import { useNavigate } from "react-router-dom";
 import Checkbox from "../../components/Checkbox";
+import { Helmet } from "react-helmet";
 
 function Register() {
   const navigate = useNavigate();
@@ -45,6 +46,14 @@ function Register() {
 
   return (
     <main>
+      <Helmet>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Register" />
+        <meta name="keywords" content="register, registration, sign up" />
+        <meta name="author" content="Roxanne Franco" />
+        <title>Register</title>
+      </Helmet>
       <div className={styles.loginWrapper}>
         {/* LEFT SIDE */}
         <WelcomeImage></WelcomeImage>

@@ -3,6 +3,7 @@ import Layout from "../../../components/Layout";
 import Header from "../../../components/Header";
 import Button from "../../../components/Button";
 import { useState, useEffect } from "react";
+import { Helmet } from "react-helmet";
 import { getVenue } from "../../../api/venues";
 import { useNavigate, useParams } from "react-router-dom";
 import Icon from "../../../components/Icon";
@@ -69,6 +70,14 @@ function VenueSettings() {
 
   return (
     <Layout>
+      <Helmet>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Venue settings" />
+        <meta name="keywords" content="settings, manager, managing" />
+        <meta name="author" content="Roxanne Franco" />
+        <title>Venue settings</title>
+      </Helmet>
       <Header></Header>
       {venue != null ? (
         <div className="center-content">
@@ -106,7 +115,7 @@ function VenueSettings() {
                     {venue.media.length ? (
                       <img
                         src={venue.media[0]}
-                        alt=""
+                        alt="venue image"
                         className={styles.previewImage}
                       />
                     ) : (

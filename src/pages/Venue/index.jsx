@@ -5,6 +5,7 @@ import Button from "../../components/Button";
 import Media from "./components/Media";
 import styles from "./styles.module.css";
 import { useParams } from "react-router-dom";
+import { Helmet } from "react-helmet";
 import { getVenue } from "../../api/venues";
 import Icon from "../../components/Icon";
 import BookingForm from "./components/BookingForm";
@@ -36,6 +37,14 @@ function Venue() {
 
   return (
     <Layout>
+      <Helmet>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Venue" />
+        <meta name="keywords" content="single, product, venue" />
+        <meta name="author" content="Roxanne Franco" />
+        <title>{venue != null ? venue.name : ""}</title>
+      </Helmet>
       <Header></Header>
       {venue != null ? (
         <div className="center-content">

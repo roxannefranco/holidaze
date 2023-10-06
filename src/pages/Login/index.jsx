@@ -6,6 +6,7 @@ import Button from "../../components/Button";
 import { useState, useEffect } from "react";
 import { authenticateUser } from "../../api/auth";
 import { useNavigate } from "react-router-dom";
+import { Helmet } from "react-helmet";
 
 function Login() {
   const navigate = useNavigate();
@@ -54,6 +55,14 @@ function Login() {
 
   return (
     <main>
+      <Helmet>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Login" />
+        <meta name="keywords" content="login, authenticate, authentication" />
+        <meta name="author" content="Roxanne Franco" />
+        <title>Login</title>
+      </Helmet>
       <div className={styles.loginWrapper}>
         {/* LEFT SIDE */}
         <WelcomeImage></WelcomeImage>

@@ -16,7 +16,11 @@ function VenueRow(props) {
     <div className={styles.row}>
       <div className={styles.info}>
         {media.length ? (
-          <img src={media[0]} alt="" className={styles.previewImage} />
+          <img
+            src={media[0]}
+            alt="venue image"
+            className={styles.previewImage}
+          />
         ) : (
           <svg
             className={styles.previewImage}

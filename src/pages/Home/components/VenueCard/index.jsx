@@ -35,7 +35,7 @@ function VenueCard(props) {
         {media.length ? (
           <img
             src={media[0]}
-            alt=""
+            alt="venue image"
             onLoad={fadeIn}
             className={classNames(styles.previewImage, {
               [styles.loaded]: isLoaded,

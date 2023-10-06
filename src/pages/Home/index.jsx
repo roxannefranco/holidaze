@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { Helmet } from "react-helmet";
 import Layout from "../../components/Layout";
 import Header from "../../components/Header";
 import styles from "./styles.module.css";
@@ -82,6 +83,15 @@ function Home() {
 
   return (
     <Layout>
+      <Helmet>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="homepage" />
+        <meta name="keywords" content="homepage, home, welcome, user" />
+        <meta name="author" content="Roxanne Franco" />
+        <title>Holidaze | homepage</title>
+      </Helmet>
+
       <Header></Header>
       <div className="center-content">
         {/* Search bar */}

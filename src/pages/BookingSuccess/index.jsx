@@ -7,6 +7,7 @@ import { useEffect, useState } from "react";
 import { getBooking } from "../../api/bookings";
 import styles from "./styles.module.css";
 import moment from "moment";
+import { Helmet } from "react-helmet";
 
 function BookingSuccess() {
   const { id } = useParams();
@@ -41,6 +42,14 @@ function BookingSuccess() {
 
   return (
     <Layout>
+      <Helmet>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta name="description" content="Booking success" />
+        <meta name="keywords" content="success, victory, done, booked" />
+        <meta name="author" content="Roxanne Franco" />
+        <title>Success!</title>
+      </Helmet>
       <Header></Header>
       <div className="center-content-sm">
         <h1 className={styles.mainTitle}>Your booking</h1>
