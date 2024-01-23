@@ -29,8 +29,7 @@ Process includes:
 - `JAVASCRIPT`.
 
 ## Project Grade
-
-not graded yet
+A
 
 ## Getting Started
 
